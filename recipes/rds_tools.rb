@@ -16,3 +16,10 @@ execute "unzip_rds_tools" do
     command "unzip RDSCli.zip -d #{node['aws_cli_tools']['rds_tools']['install_path']}"
     action :run
 end
+
+template "/etc/profile.d/rds_tools.sh" do
+    source "ami_tools.sh.erb"
+    owner "root"
+    group "root"
+    mode 00755
+end

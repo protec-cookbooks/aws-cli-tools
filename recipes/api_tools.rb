@@ -16,3 +16,10 @@ execute "unzip_api_tools" do
     command "unzip ec2-api-tools.zip -d #{node['aws_cli_tools']['api_tools']['install_path']}"
     action :run
 end
+
+template "/etc/profile.d/api_tools.sh" do
+    source "api_tools.sh.erb"
+    owner "root"
+    group "root"
+    mode 00755
+end

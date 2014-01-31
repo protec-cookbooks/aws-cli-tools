@@ -2,9 +2,13 @@ Description
 ===========
 
 Installs Amazon AWS tools:
- * api tools
  * ami tools
+ * api tools
  * autoscaling tools
+ * cloudsearch tools
+ * cloudwatch tools
+ * elb tools
+ * iam tools
  * rds tools
 
 Requirements
@@ -15,4 +19,4 @@ Requirements
 Attributes
 ==========
 
-See the `attributes/default.rb` for default values.
+See the `attributes/*.rb` for default values for each tool.

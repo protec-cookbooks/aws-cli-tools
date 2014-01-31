@@ -1,4 +1,8 @@
 include_recipe "aws-cli-tools::ami_tools"
 include_recipe "aws-cli-tools::api_tools"
 include_recipe "aws-cli-tools::autoscaling_tools"
+include_recipe "aws-cli-tools::cloudsearch_tools"
+include_recipe "aws-cli-tools::cloudwatch_tools"
+include_recipe "aws-cli-tools::elb_tools"
+include_recipe "aws-cli-tools::iam_tools"
 include_recipe "aws-cli-tools::rds_tools"
