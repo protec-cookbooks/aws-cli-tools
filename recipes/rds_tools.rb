@@ -12,6 +12,8 @@ unless Dir.exists? "#{node['aws_cli_tools']['rds_tools']['install_path']}"
         action :create
     end
 
+    include_recipe "unzip"
+
     execute "unzip_rds_tools" do
         cwd "/tmp"
         command "unzip RDSCli.zip"
@@ -26,7 +28,7 @@ unless Dir.exists? "#{node['aws_cli_tools']['rds_tools']['install_path']}"
 
     execute "delete_rds_temp" do
         cwd "/tmp"
-        command "rm-rf RDS*"
+        command "rm -rf RDS*"
         action :run
     end
 

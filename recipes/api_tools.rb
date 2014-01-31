@@ -12,6 +12,8 @@ unless Dir.exists? "#{node['aws_cli_tools']['api_tools']['install_path']}"
         action :create
     end
 
+    include_recipe "unzip"
+
     execute "unzip_api_tools" do
         cwd "/tmp"
         command "unzip ec2-api-tools.zip"
@@ -26,7 +28,7 @@ unless Dir.exists? "#{node['aws_cli_tools']['api_tools']['install_path']}"
 
     execute "delete_api_temp" do
         cwd "/tmp"
-        command "rm-rf ec2-api-tools*"
+        command "rm -rf ec2-api-tools*"
         action :run
     end
 

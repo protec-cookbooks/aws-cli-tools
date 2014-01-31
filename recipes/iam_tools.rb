@@ -12,6 +12,8 @@ unless Dir.exists? "#{node['aws_cli_tools']['iam_tools']['install_path']}"
         action :create
     end
 
+    include_recipe "unzip"
+
     execute "unzip_iam_tools" do
         cwd "/tmp"
         command "unzip IAMCli.zip"
@@ -26,7 +28,7 @@ unless Dir.exists? "#{node['aws_cli_tools']['iam_tools']['install_path']}"
 
     execute "delete_iam_temp" do
         cwd "/tmp"
-        command "rm-rf IAM*"
+        command "rm -rf IAM*"
         action :run
     end
 

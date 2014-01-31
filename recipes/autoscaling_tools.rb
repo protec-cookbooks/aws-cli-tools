@@ -12,6 +12,8 @@ unless Dir.exists? "#{node['aws_cli_tools']['autoscaling_tools']['install_path']
         action :create
     end
 
+    include_recipe "unzip"
+
     execute "unzip_autoscaling_tools" do
         cwd "/tmp"
         command "unzip AutoScaling.zip"
@@ -26,7 +28,7 @@ unless Dir.exists? "#{node['aws_cli_tools']['autoscaling_tools']['install_path']
 
     execute "delete_autoscaling_temp" do
         cwd "/tmp"
-        command "rm-rf AutoScaling*"
+        command "rm -rf AutoScaling*"
         action :run
     end
 

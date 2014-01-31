@@ -12,6 +12,8 @@ unless Dir.exists? "#{node['aws_cli_tools']['cloudwatch_tools']['install_path']}
         action :create
     end
 
+    include_recipe "unzip"
+
     execute "unzip_cloudwatch_tools" do
         cwd "/tmp"
         command "unzip CloudWatch.zip"
@@ -26,7 +28,7 @@ unless Dir.exists? "#{node['aws_cli_tools']['cloudwatch_tools']['install_path']}
 
     execute "delete_cloudwatch_temp" do
         cwd "/tmp"
-        command "rm-rf CloudWatch*"
+        command "rm -rf CloudWatch*"
         action :run
     end
 

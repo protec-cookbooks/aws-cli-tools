@@ -12,9 +12,11 @@ unless Dir.exists? "#{node['aws_cli_tools']['ami_tools']['install_path']}"
         action :create
     end
 
+    include_recipe "unzip"
+
     execute "unzip_ami_tools" do
         cwd "/tmp"
-        command "unzip ec2-ami-tools.zip -d #{node['aws_cli_tools']['ami_tools']['install_path']}"
+        command "unzip ec2-ami-tools.zip"
         action :run
     end
 
@@ -26,7 +28,7 @@ unless Dir.exists? "#{node['aws_cli_tools']['ami_tools']['install_path']}"
 
     execute "delete_ami_temp" do
         cwd "/tmp"
-        command "rm-rf ec2-ami-tools*"
+        command "rm -rf ec2-ami-tools*"
         action :run
     end
 
